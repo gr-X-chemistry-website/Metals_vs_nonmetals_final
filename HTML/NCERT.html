@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./NCERT_files/NCERT.css" />
+    <title>
+        NCERT Textbook
+    </title>
+</head>
+<body>
+    <header>
+        <img id="logo" src="./../pics/logo.png" alt="logo" onclick="openHome();">
+        <nav>
+          <ul>
+            <li><a href="">NCERT</a></li>
+            <li><a href="">Quizzes</a></li>
+            <li><a href="">Videos</a></li>
+            <li><a href="./Differences.html">Differences</a></li>
+            <li><a href="./../Elements/list.html">Elements</a></li>
+          </ul>
+        </nav>
+        <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="">NCERT</a></li>
+            <li><a href="">Quizzes</a></li>
+            <li><a href="">Videos</a></li>
+            <li><a href="./Differences.html">Differences</a></li>
+            <li><a href="./../Elements/list.html">Elements</a></li>
+          </ul>
+        </div>
+      </header>
+    <section>
+        <h1>Ncert Textbook</h1>
+        <div class="frame-container">
+            <iframe class="frame" src="./NCERT.pdf" frameborder="0"></iframe>
+        </div>
+    </section>
+    <script>
+        function toggleMobileMenu(menu) {
+            menu.classList.toggle('open');
+        }
+
+        function openHome(){
+            window.open("./../index.html");
+        }
+    </script>
+</body>
+</html>

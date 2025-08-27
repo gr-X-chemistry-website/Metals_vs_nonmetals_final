@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Non-Metals</title>
+  <link rel="stylesheet" href="./Non-Metals_files/nonmetals.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .explanation-container {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    .gif-image {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gif-image:hover {
+      transform: scale(1.05);
+    }
+
+    .highlight, .clickable {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .highlight:hover, .clickable:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="nonmetals">
+
+
+  <header>
+    <img id="logo" src="./logo.png" alt="logo" onclick="openHome();">
+    <nav>
+      <ul>
+        <li><a href="./NCERT.html">NCERT</a></li>
+        <li><a href="">Quizzes</a></li>
+        <li><a href="">Videos</a></li>
+        <li><a href="./Differences.html">Differences</a></li>
+        <li><a href="./../Elements/list.html">Elements</a></li>
+      </ul>
+    </nav>
+    <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+      <ul class="mobile-menu">
+        <li><a href="./NCERT.html">NCERT</a></li>
+        <li><a href="">Quizzes</a></li>
+        <li><a href="">Videos</a></li>
+        <li><a href="./Differences.html">Differences</a></li>
+        <li><a href="./../Elements/list.html">Elements</a></li>
+      </ul>
+    </div>
+  </header>
+
+
+  <h1 class="title">Non-Metals</h1>
+
+  <div class="image-row">
+    <img src="./Non-Metals_files/sulphur.webp" alt="Sulfur" onclick="speak(&#39;This is sulfur. It is a non-metal. It breaks easily and is not shiny.&#39;)">
+    <img src="./Non-Metals_files/carbon.jpg" alt="Carbon" onclick="speak(&#39;This is carbon. It is a non-metal found in different forms like graphite and diamond.&#39;)">
+    <img src="./Non-Metals_files/phosphorous.jpg" alt="Phosphorus" onclick="speak(&#39;This is phosphorus. It is a non-metal used in making safety matches and fertilizers.&#39;)">
+    <img src="./Non-Metals_files/oxygen.webp" alt="Oxygen" onclick="speak(&#39;This is oxygen. It is a gas that we breathe in to stay alive.&#39;)">
+  </div>
+
+  <p class="info-text">
+    Non-metals are a group of 
+    <span class="highlight" onclick="speak(&#39;An element is a substance made of only one type of atom.&#39;)">elements</span> that typically do not conduct heat or electricity and are not 
+    <span class="highlight" onclick="speak(&#39;Lustrous means shiny. Non-metals are usually not shiny.&#39;)">lustrous</span>. They are often 
+    <span class="highlight" onclick="speak(&#39;Brittle means it breaks easily when bent or hit.&#39;)">brittle</span> and cannot be 
+    <span class="highlight" onclick="speak(&#39;Malleable means it can be hammered into sheets. Non-metals cannot be hammered.&#39;)">malleable</span> or 
+    <span class="highlight" onclick="speak(&#39;Ductile means it can be pulled into wires. Non-metals cannot be pulled into wires.&#39;)">ductile</span>. Unlike metals, non-metals 
+    <span class="highlight" ondblclick="showDetail()" onclick="speak(&#39;In chemical reactions, non-metals gain electrons to form negative ions.Double click for more understanding.&#39;)">tend to gain electrons during chemical reactions</span>.
+  </p>
+
+
+  <div id="explanation-section" class="explanation-container" style="display: none;">
+    <p id="detailed-explanation" class="info-text fade-in"></p>
+    <img id="explanation-gif" class="gif-image fade-in" src="./Non-Metals_files/electron-gain.gif" alt="Electron Gain Process GIF" ondblclick="showGifExplanation()" onclick="explainGif()">
+    <p id="gif-explanation" class="info-text fade-in" style="display: none;"></p>
+  </div>
+
+  <script>
+
+    function openHome(){
+        window.open("./../index.html");
+    }
+
+    function toggleMobileMenu(menu) {
+      menu.classList.toggle('open');
+    }
+
+    function speak(text) {
+      if (!window.speechSynthesis.speaking) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        speechSynthesis.speak(utterance);
+      }
+    }
+
+    function explainGif() {
+      speak("In this GIF, sodium or N A loses one electron, and chlorine or C L gains that same electron. This makes sodium a positive ion and chlorine a negative ion. Because opposite charges attract, they bond together. Both get full outer shells, like noble gases.Double click for more understanding.");
+    }
+
+    function showDetail() {
+      const section = document.getElementById("explanation-section");
+      const explanation = document.getElementById("detailed-explanation");
+
+      if (section.style.display === "none") {
+        section.style.display = "block";
+        explanation.innerHTML = `
+          In a <span class="highlight" onclick="speak('A chemical reaction is a process where substances change to form new substances.')">chemical reaction</span>, 
+          <span class="highlight" onclick="speak('Non-metals are elements like oxygen and fluorine that do not conduct heat or electricity.')">non-metals</span> usually 
+          <span class="highlight" onclick="speak('Electrons are small negatively charged particles in atoms.')">gain electrons</span>. 
+          This means they take in extra negative charge. When they do this, they form 
+          <span class="highlight" onclick="speak('Negative ions are atoms that have more electrons than protons.')">negative ions</span>. 
+          These negative ions are stable and can combine with positive ions (like metals) to form 
+          <span class="highlight" onclick="speak('Ionic bonds are formed when oppositely charged ions attract each other.')">ionic bonds</span>.
+        `;
+
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      }
+    }
+
+    function showGifExplanation() {
+      const gifPara = document.getElementById("gif-explanation");
+      if (gifPara.style.display === "none") {
+        gifPara.style.display = "block";
+        gifPara.innerHTML = `
+          In this GIF, <span class="highlight" onclick="speak('Sodium is a metal. It gives away an electron.')">sodium (Na)</span> gives away one electron. 
+          <span class="highlight" onclick="speak('Chlorine is a non-metal. It takes the electron given by sodium.')">Chlorine (Cl)</span> accepts that same electron. 
+          Sodium becomes a <span class="highlight" onclick="speak('A positive ion has more protons than electrons.')">positive ion</span>, and chlorine becomes a 
+          <span class="highlight" onclick="speak('A negative ion has more electrons than protons.')">negative ion</span>. 
+          Because they are oppositely charged, they 
+          <span class="highlight" onclick="speak('Opposite charges attract each other, forming a bond.')">attract and bond together</span>. 
+          Now both atoms have 
+          <span class="highlight" onclick="speak('A full outer shell means all electron positions in the outer layer are filled.')">full outer shells</span>, just like 
+          <span class="highlight" onclick="speak('Noble gases are very stable because they have full outer shells.')">noble gases</span>, which makes them stable.
+        `;
+      }
+    }
+  </script>
+
+
+</body></html>

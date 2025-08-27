@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metals</title>
+  <link rel="stylesheet" href="./Metals_files/metals.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .explanation-container {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 20px;
+    }
+
+    .gif-image {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: 20px auto 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .gif-image:hover {
+      transform: scale(1.05);
+    }
+
+    .highlight, .clickable {
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .highlight:hover, .clickable:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="metals">
+
+<header>
+  <img id="logo" src="./logo.png" alt="logo" onclick="openHome();">
+  <nav>
+    <ul>
+      <li><a href="./NCERT.html">NCERT</a></li>
+      <li><a href="">Quizzes</a></li>
+      <li><a href="">Videos</a></li>
+      <li><a href="./Differences.html">Differences</a></li>
+      <li><a href="./../Elements/list.html">Elements</a></li>
+    </ul>
+  </nav>
+  <div id="hamburger-icon" onclick="toggleMobileMenu(this)">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+    <ul class="mobile-menu">
+      <li><a href="./NCERT.html">NCERT</a></li>
+      <li><a href="">Quizzes</a></li>
+      <li><a href="">Videos</a></li>
+      <li><a href="./Differences.html">Differences</a></li>
+      <li><a href="./../Elements/list.html">Elements</a></li>
+    </ul>
+  </div>
+</header>
+  
+<h1 class="title">Metals</h1>
+
+<div class="image-row">
+  <img src="./Metals_files/gold_bar.png" alt="Gold" onclick="speak(&#39;Gold is a shiny metal. It is used in making jewellery and coins.&#39;)">
+  <img src="./Metals_files/aluminium.png" alt="Aluminium" onclick="speak(&#39;Aluminium is a light metal. It is used in utensils, airplanes, and foil.&#39;)">
+  <img src="./Metals_files/copper_wire.png" alt="Copper" onclick="speak(&#39;Copper is a metal that carries electricity well. It is used to make wires.&#39;)">
+  <img src="./Metals_files/iron_ingot.webp" alt="Iron" onclick="speak(&#39;Iron is a strong metal. It is used in buildings and tools.&#39;)">
+</div>
+
+<p class="info-text">
+  <span class="clickable" onclick="speak(&#39;An element is a pure substance made of just one kind of atom.&#39;)">Elements</span> like metals are 
+  generally 
+  <span class="highlight" onclick="speak(&#39;Lustrous means shiny. Most metals are shiny.&#39;)">lustrous</span>, 
+  <span class="highlight" onclick="speak(&#39;Malleable means the metal can be hammered into thin sheets.&#39;)">malleable</span>, 
+  <span class="highlight" onclick="speak(&#39;Ductile means the metal can be made into wires.&#39;)">ductile</span>, and good 
+  <span class="clickable" onclick="speak(&#39;Conductors allow heat and electricity to pass through them easily.&#39;)">conductors</span> of heat and electricity. 
+  Metals are also generally hard and have high melting points. They are sonorous, meaning they produce a ringing sound when struck. 
+  Most metals are solid at room temperature, except mercury. They tend to form <span class="highlight" ondblclick="showDetail()" onclick="speak(&#39;In chemical reactions, metals lose electrons and form positive ions.Double click for more understanding.&#39;)">positive ions by losing electrons during chemical reactions</span>.
+</p>
+
+<div id="explanation-section" class="explanation-container" style="display: none;">
+    <p class="pp">Click of this gif to hear its explaination:</p>  
+    <img id="explanation-gif" class="gif-image fade-in" src="./Metals_files/oxidation.gif" alt="Oxidation Process GIF" onclick="explainGif()">
+  <p id="detailed-explanation" class="info-text fade-in"></p>
+</div>
+
+<script>
+  function openHome(){
+      window.open("./../index.html");
+  }
+
+  function toggleMobileMenu(menu) {
+    menu.classList.toggle('open');
+  }
+
+  function speak(text) {
+    if (!window.speechSynthesis.speaking) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      speechSynthesis.speak(utterance);
+    }
+  }
+
+  function explainGif() {
+    speak("In this GIF, sodium or N A loses an electron and becomes a positive ion. Fluorine or F gains that electron and becomes a negative ion.");
+  }
+
+  function showDetail() {
+    const section = document.getElementById("explanation-section");
+    const explanation = document.getElementById("detailed-explanation");
+
+    if (section.style.display === "none") {
+      section.style.display = "block";
+      explanation.innerHTML = `
+        When a <span class="highlight" onclick="speak('A chemical reaction is a process where substances change to form new substances.')">chemical reaction</span> happens, 
+        <span class="highlight" onclick="speak('Atoms are the smallest parts of an element. They have protons, neutrons, and electrons.')">atoms</span> of metals lose  
+        <span class="highlight" onclick="speak('Electrons are tiny negatively charged particles in an atom.')">electrons</span>. 
+        This means they give away some of their negative charge. As a result, they become 
+        <span class="highlight" onclick="speak('Positive ions are atoms that have more protons than electrons.')">positively charged ions</span>. 
+        This is how metals take part in reactions — they don't gain, but instead 
+        <span class="highlight" onclick="speak('To lose electrons means to give them away to another atom during a reaction.')">lose electrons</span> to bond with other elements.
+      `;
+
+      // Scroll to reveal the explanation
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: "smooth" });
+      }, 50);
+    }
+  }
+</script>
+
+
+</body></html>
